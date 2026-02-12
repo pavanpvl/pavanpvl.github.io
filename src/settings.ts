@@ -1,5 +1,5 @@
 export const profile = {
-	fullName: 'Your Name',
+	fullName: 'Pavan Pallapothu',
 	title: '',
 	institute: '',
 	author_name: '', // Author name to be highlighted in the papers section
@@ -10,11 +10,11 @@ export const profile = {
 
 // Set equal to an empty string to hide the icon that you don't want to display
 export const social = {
-	email: '',
-	linkedin: '',
-	x: 'https://www.x.com/',
+	email: 'pavanpvl29@gmail.com',
+	linkedin: 'https://www.linkedin.com/in/pavan-pallapothu-724640147',
+	x: 'https://x.com/PvlPavan',
 	bluesky: '',
-	github: '',
+	github: 'https://github.com/pavanpvl',
 	gitlab: '',
 	scholar: '',
 	inspire: '',

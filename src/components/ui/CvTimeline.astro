@@ -1,6 +1,12 @@
 ---
+import { Image } from 'astro:assets'
 import { isExperience } from '@/types/cv';
 import type { Experience, Education } from '@/types/cv';
+import adobeLogo from '@/assets/brands/Adobe_Corporate_logo.svg'
+import zomatoLogo from '@/assets/brands/Zomato_Logo.svg'
+import samsungLogo from '@/assets/brands/samsung.svg'
+import iitkgpLogo from '@/assets/brands/iitkgp.svg'
+import rephraseLogo from '@/assets/brands/rephrase.png'
 
 interface Props {
 	elements: (Experience | Education)[]
@@ -8,6 +14,13 @@ interface Props {
 }
 
 const { elements, colored } = Astro.props
+const logoMap = {
+	adobe: adobeLogo,
+	rephrase: rephraseLogo,
+	zomato: zomatoLogo,
+	samsung: samsungLogo,
+	iitkgp: iitkgpLogo,
+} as const
 ---
 
 <ul
@@ -36,7 +49,18 @@ const { elements, colored } = Astro.props
 					<time class='font-mono italic'>{element.time}</time>
 					<div class='text-lg font-black'>{isExperience(element) ? element.title : element.degree}</div>
 					<div>{element.description}</div>
-					<div>{isExperience(element) ? element.company : element.school}</div>
+					<div class='mt-1 flex items-center gap-2'>
+						{
+							element.logoKey && (
+								<Image
+									src={logoMap[element.logoKey]}
+									alt={`${isExperience(element) ? element.company : element.school} logo`}
+									class='h-5 w-auto object-contain'
+								/>
+							)
+						}
+						<span>{isExperience(element) ? element.company : element.school}</span>
+					</div>
 					<div>{element.location}</div>
 				</div>
         <hr class:list={[{ 'bg-accent': colored }]} />

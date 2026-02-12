@@ -1,11 +1,37 @@
 export const experiences = [
 	{
-		company: '',
-		time: '',
-		title: '',
-		location: '',
+		company: 'Adobe',
+		time: '2023 - Present',
+		title: 'Machine Learning Engineer II',
+		location: 'Bangalore, India',
 		description: '',
+		logoKey: 'adobe',
 	},
+	{
+		company: 'Rephrase.ai (acquired by Adobe)',
+		time: '2023',
+		title: 'Machine Learning Engineer',
+		location: 'Bangalore, India',
+		description: '',
+		logoKey: 'rephrase',
+	},
+	{
+		company: 'Zomato',
+		time: '2022-2023',
+		title: 'Machine Learning Engineer',
+		location: 'Gurgaon, India',
+		description: '',
+		logoKey: 'zomato',
+	},
+	{
+		company: 'Samsung',
+		time: '2021-2022',
+		title: 'Machine Learning Engineer',
+		location: 'Bangalore, India',
+		description: '',
+		logoKey: 'samsung',
+	},
+
 	// {
 	// 	company: 'Radium Institute (Institut du Radium)',
 	// 	time: '1914 - 1934',
@@ -17,11 +43,12 @@ export const experiences = [
 
 export const education = [
 	{
-		school: '',
-		time: '',
-		degree: '',
-		location: '',
+		school: 'Indian Institute of Technology, Kharagpur',
+		time: '2017-2021',
+		degree: 'B.Tech (Hons.) Major in Electronics & Minor in Computer Science',
+		location: 'Kharagpur, India',
 		description: '',
+		logoKey: 'iitkgp',
 	},
 	// {
 	// 	school: 'University of Paris',

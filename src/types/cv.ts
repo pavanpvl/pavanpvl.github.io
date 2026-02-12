@@ -4,6 +4,7 @@ export interface Experience {
   title: string;
   location?: string;
   description?: string;
+  logoKey?: 'adobe' | 'rephrase' | 'zomato' | 'samsung';
 }
 
 export interface Education {
@@ -12,6 +13,7 @@ export interface Education {
   degree: string;
   location?: string;
   description?: string;
+  logoKey?: 'iitkgp';
 }
 
 export interface Skill {
