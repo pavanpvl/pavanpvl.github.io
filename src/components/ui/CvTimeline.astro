@@ -21,13 +21,37 @@ const logoMap = {
 	samsung: samsungLogo,
 	iitkgp: iitkgpLogo,
 } as const
+
+const logoSizeClassMap: Record<keyof typeof logoMap, string> = {
+	adobe: 'max-h-8 max-w-20 scale-150',
+	rephrase: 'max-h-20 max-w-32',
+	zomato: 'max-h-7 max-w-20',
+	samsung: 'max-h-8 max-w-24',
+	iitkgp: 'max-h-30 max-w-48',
+}
+
+const logoTranslateYClassMap: Record<keyof typeof logoMap, string> = {
+	adobe: 'translate-y-4',
+	rephrase: 'translate-y-4',
+	zomato: 'translate-y-4',
+	samsung: 'translate-y-6',
+	iitkgp: 'translate-y-5',
+}
+
+const logoTranslateXClassMap: Record<keyof typeof logoMap, string> = {
+	adobe: 'translate-x-0',
+	rephrase: '-translate-x-2',
+	zomato: 'translate-x-0',
+	samsung: 'translate-x-0',
+	iitkgp: 'translate-x-0',
+}
 ---
 
 <ul
 	class='timeline timeline-snap-icon max-md:timeline-compact timeline-vertical'
 >
 	{
-		elements.map((element, index) => (
+		elements.map((element) => (
 			<li>
 				<div class='timeline-middle'>
 					<svg
@@ -43,24 +67,29 @@ const logoMap = {
 						/>
 					</svg>
 				</div>
-				<div
-					class={`${index % 2 === 0 ? 'timeline-start' : 'timeline-end'} mb-10 md:text-end`}
-				>
-					<time class='font-mono italic'>{element.time}</time>
-					<div class='text-lg font-black'>{isExperience(element) ? element.title : element.degree}</div>
-					<div>{element.description}</div>
-					<div class='mt-1 flex items-center gap-2'>
-						{
-							element.logoKey && (
+				<div class='timeline-start self-center justify-self-end mb-10 md:text-end'>
+					{
+						element.logoKey && (
+							<div class='h-12 w-24 flex items-center justify-center'>
 								<Image
 									src={logoMap[element.logoKey]}
 									alt={`${isExperience(element) ? element.company : element.school} logo`}
-									class='h-5 w-auto object-contain'
+									class:list={[
+										'object-contain',
+										logoSizeClassMap[element.logoKey],
+										logoTranslateYClassMap[element.logoKey],
+										logoTranslateXClassMap[element.logoKey],
+									]}
 								/>
-							)
-						}
-						<span>{isExperience(element) ? element.company : element.school}</span>
-					</div>
+							</div>
+						)
+					}
+				</div>
+				<div class='timeline-end mb-10 md:text-start'>
+					<time class='font-mono italic'>{element.time}</time>
+					<div class='text-lg font-black'>{isExperience(element) ? element.title : element.degree}</div>
+					<div>{element.description}</div>
+					<div class='mt-1'>{isExperience(element) ? element.company : element.school}</div>
 					<div>{element.location}</div>
 				</div>
         <hr class:list={[{ 'bg-accent': colored }]} />
