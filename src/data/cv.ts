@@ -45,7 +45,7 @@ export const education = [
 	{
 		school: 'Indian Institute of Technology, Kharagpur',
 		time: '2017-2021',
-		degree: 'B.Tech (Hons.) Major in Electronics & Minor in Computer Science',
+		degree: 'B.Tech Major in ECE, Minor in CS',
 		location: 'Kharagpur, India',
 		description: '',
 		logoKey: 'iitkgp',
