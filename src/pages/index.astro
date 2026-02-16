@@ -1,14 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import { Image } from 'astro:assets'
 
 import { profile } from '@/settings'
 import { experiences, education } from '@/data/cv'
 import ProfilePictures from '@/assets/profile_pictures.jpg'
+import AdobeFireflyLogo from '@/assets/brands/Adobe_Firefly_Logo.png'
+import ZomatoLogo from '@/assets/brands/Zomato_Logo.svg'
+import FireflyDemoVideo from '@/assets/projects/translate_video.mp4'
+import TextToAvatarAsset from '@/assets/projects/text_to_avatar.webp'
+import ImageEnhancementAsset from '@/assets/projects/image_enhancement.avif'
+import FacenetSiameseAsset from '@/assets/projects/facenet_siamese.png'
+import ClipImageTaggingAsset from '@/assets/projects/clip_image_tagging.png'
 import Hero from '@/components/ui/Hero.astro'
 import CvTimeline from '@/components/ui/CvTimeline.astro'
 import type { Experience, Education } from '@/types/cv'
 
 const { fullName, title, institute } = profile
+const fireflyWebsite = 'https://www.adobe.com/products/firefly/features/translate-video.html'
+const avatarWebsite = 'https://www.adobe.com/in/products/firefly/features/ai-avatar-generator.html'
+const zomatoWebsite = 'https://www.zomato.com/'
 
 let orderedExperiences: Experience[] = []
 let orderedEducations: Education[] = []
@@ -58,6 +69,270 @@ if (education.length > 0) {
 			<p>
 				I graduated from IIT Kharagpur with a B.Tech in Electronics and Electrical Communication and a minor in Computer Science.
 			</p>
+		</div>
+	</section>
+
+	<section id='projects' class='pt-12'>
+		<h2 class='text-2xl font-bold mb-6 border-b pb-2'>Projects</h2>
+		<div class='grid grid-cols-1 gap-8 md:grid-cols-2 md:items-start'>
+			<div class='flex justify-center'>
+				<div class='h-[224px] rounded-lg'>
+					<video
+						class='h-full w-auto max-w-full rounded-lg object-contain'
+						src={FireflyDemoVideo}
+						autoplay
+						loop
+						controls
+						muted
+						playsinline
+					>
+						Your browser does not support the video tag.
+					</video>
+				</div>
+			</div>
+
+			<div class='space-y-4'>
+				<h3 class='text-xl font-bold'>Adobe Translate Video</h3>
+				<p class='text-base-content/90 leading-relaxed'>
+					Built the data pipeline to process Adobe Stock and proprietary videos to train the Translate Video model.
+				</p>
+				<div class='flex flex-wrap items-center gap-4'>
+					<a
+						href={fireflyWebsite}
+						target='_blank'
+						rel='noopener noreferrer'
+						class='group inline-flex items-center gap-2 text-xs text-zinc-500 transition-colors duration-300 hover:text-zinc-900'
+					>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='12'
+							height='12'
+							viewBox='0 0 24 24'
+							fill='none'
+							stroke='currentColor'
+							stroke-width='2'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							class='transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
+						>
+							<path d='M7 7h10v10'></path>
+							<path d='M7 17 17 7'></path>
+						</svg>
+						<span class='tracking-wider uppercase'>Website</span>
+					</a>
+					<div class='flex items-center gap-2'>
+						<Image
+							src={AdobeFireflyLogo}
+							alt='Adobe Firefly logo'
+							class='h-10 w-10 object-contain drop-shadow-sm'
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class='mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-start'>
+			<div class='flex justify-center'>
+				<div class='h-[224px] rounded-lg'>
+					<Image
+						src={TextToAvatarAsset}
+						alt='Adobe Text to AI Avatar preview'
+						class='h-full w-auto max-w-full rounded-lg object-contain'
+					/>
+				</div>
+			</div>
+
+			<div class='space-y-4'>
+				<h3 class='text-xl font-bold'>Adobe Text to AI Avatar</h3>
+				<p class='text-base-content/90 leading-relaxed'>
+					Text to AI Avatar is built on top of the Translate Video model. The product uses predefined green-screen stock actors and text-to-speech to generate avatar based videos directly from text input.
+				</p>
+				<div class='flex flex-wrap items-center gap-4'>
+					<a
+						href={avatarWebsite}
+						target='_blank'
+						rel='noopener noreferrer'
+						class='group inline-flex items-center gap-2 text-xs text-zinc-500 transition-colors duration-300 hover:text-zinc-900'
+					>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='12'
+							height='12'
+							viewBox='0 0 24 24'
+							fill='none'
+							stroke='currentColor'
+							stroke-width='2'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							class='transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
+						>
+							<path d='M7 7h10v10'></path>
+							<path d='M7 17 17 7'></path>
+						</svg>
+						<span class='tracking-wider uppercase'>Website</span>
+					</a>
+					<div class='flex items-center gap-2'>
+						<Image
+							src={AdobeFireflyLogo}
+							alt='Adobe Firefly logo'
+							class='h-10 w-10 object-contain drop-shadow-sm'
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class='mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-start'>
+			<div class='flex justify-center'>
+				<div class='h-[224px] rounded-lg'>
+					<Image
+						src={ImageEnhancementAsset}
+						alt='Generative Image Enhancement preview'
+						class='h-full w-auto max-w-full rounded-lg object-contain'
+					/>
+				</div>
+			</div>
+
+			<div class='space-y-4'>
+				<h3 class='text-xl font-bold'>Generative Image Enhancement</h3>
+				<p class='text-base-content/90 leading-relaxed'>
+					Built and deployed an end-to-end API to enhance food catalog images by extracting dishes and inpainting backgrounds, and optimized the Stable Diffusion inference pipeline for production use through GPU and system-level improvements.
+				</p>
+				<div class='flex flex-wrap items-center gap-4'>
+					<a
+						href={zomatoWebsite}
+						target='_blank'
+						rel='noopener noreferrer'
+						class='group inline-flex items-center gap-2 text-xs text-zinc-500 transition-colors duration-300 hover:text-zinc-900'
+					>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='12'
+							height='12'
+							viewBox='0 0 24 24'
+							fill='none'
+							stroke='currentColor'
+							stroke-width='2'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							class='transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
+						>
+							<path d='M7 7h10v10'></path>
+							<path d='M7 17 17 7'></path>
+						</svg>
+						<span class='tracking-wider uppercase'>Website</span>
+					</a>
+					<div class='flex items-center gap-2'>
+						<Image
+							src={ZomatoLogo}
+							alt='Zomato logo'
+							class='h-10 w-10 object-contain drop-shadow-sm'
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class='mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-start'>
+			<div class='flex justify-center'>
+				<div class='h-[224px] rounded-lg'>
+					<Image
+						src={FacenetSiameseAsset}
+						alt='Rider Face authentication preview'
+						class='h-full w-auto max-w-full rounded-lg object-contain'
+					/>
+				</div>
+			</div>
+
+			<div class='space-y-4'>
+				<h3 class='text-xl font-bold'>Rider Face Authentication</h3>
+				<p class='text-base-content/90 leading-relaxed'>
+					Built and deployed an end-to-end face recognition and liveliness detection API for rider onboarding and authentication. Fine-tuned a FaceNet-based siamese model on a large in-house dataset and replaced AWS Rekognition with an in-house system for better performance and cost control.
+				</p>
+				<div class='flex flex-wrap items-center gap-4'>
+					<a
+						href={zomatoWebsite}
+						target='_blank'
+						rel='noopener noreferrer'
+						class='group inline-flex items-center gap-2 text-xs text-zinc-500 transition-colors duration-300 hover:text-zinc-900'
+					>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='12'
+							height='12'
+							viewBox='0 0 24 24'
+							fill='none'
+							stroke='currentColor'
+							stroke-width='2'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							class='transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
+						>
+							<path d='M7 7h10v10'></path>
+							<path d='M7 17 17 7'></path>
+						</svg>
+						<span class='tracking-wider uppercase'>Website</span>
+					</a>
+					<div class='flex items-center gap-2'>
+						<Image
+							src={ZomatoLogo}
+							alt='Zomato logo'
+							class='h-10 w-10 object-contain drop-shadow-sm'
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class='mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-start'>
+			<div class='flex justify-center'>
+				<div class='h-[224px] rounded-lg'>
+					<Image
+						src={ClipImageTaggingAsset}
+						alt='Indian Food Image Tagging preview'
+						class='h-full w-auto max-w-full rounded-lg object-contain'
+					/>
+				</div>
+			</div>
+
+			<div class='space-y-4'>
+				<h3 class='text-xl font-bold'>Dish Image Tagging</h3>
+				<p class='text-base-content/90 leading-relaxed'>
+					Built and deployed an image tagging API to generate relevant tags for catalog images and improve search relevance. Fine-tuned a CLIP-based model on an in-house dataset of 100k images covering top dishes and productionized it for low-latency batch predictions.
+				</p>
+				<div class='flex flex-wrap items-center gap-4'>
+					<a
+						href={zomatoWebsite}
+						target='_blank'
+						rel='noopener noreferrer'
+						class='group inline-flex items-center gap-2 text-xs text-zinc-500 transition-colors duration-300 hover:text-zinc-900'
+					>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='12'
+							height='12'
+							viewBox='0 0 24 24'
+							fill='none'
+							stroke='currentColor'
+							stroke-width='2'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							class='transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
+						>
+							<path d='M7 7h10v10'></path>
+							<path d='M7 17 17 7'></path>
+						</svg>
+						<span class='tracking-wider uppercase'>Website</span>
+					</a>
+					<div class='flex items-center gap-2'>
+						<Image
+							src={ZomatoLogo}
+							alt='Zomato logo'
+							class='h-10 w-10 object-contain drop-shadow-sm'
+						/>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 
