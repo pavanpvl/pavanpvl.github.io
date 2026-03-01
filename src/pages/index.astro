@@ -6,12 +6,19 @@ import { profile } from '@/settings'
 import { experiences, education } from '@/data/cv'
 import ProfilePictures from '@/assets/profile_pictures.jpg'
 import AdobeFireflyLogo from '@/assets/brands/Adobe_Firefly_Logo.png'
+import RephraseLogo from '@/assets/brands/rephrase.png'
 import ZomatoLogo from '@/assets/brands/Zomato_Logo.svg'
+import SamsungLogo from '@/assets/brands/samsung.svg'
+import IitkgpLogo from '@/assets/brands/iitkgp.svg'
 import FireflyDemoVideo from '@/assets/projects/translate_video.mp4'
 import TextToAvatarAsset from '@/assets/projects/text_to_avatar.webp'
 import ImageEnhancementAsset from '@/assets/projects/image_enhancement.avif'
 import FacenetSiameseAsset from '@/assets/projects/facenet_siamese.png'
 import ClipImageTaggingAsset from '@/assets/projects/clip_image_tagging.png'
+import GestureRecognitionAsset from '@/assets/projects/gesture_recognition.png'
+import HumanActionClassificationAsset from '@/assets/projects/human_action_classification.png'
+import CsiNetAsset from '@/assets/projects/csinet.png'
+import LensfreeAsset from '@/assets/projects/lesnfree.gif'
 import Hero from '@/components/ui/Hero.astro'
 import CvTimeline from '@/components/ui/CvTimeline.astro'
 import type { Experience, Education } from '@/types/cv'
@@ -20,6 +27,11 @@ const { fullName, title, institute } = profile
 const fireflyWebsite = 'https://www.adobe.com/products/firefly/features/translate-video.html'
 const avatarWebsite = 'https://www.adobe.com/in/products/firefly/features/ai-avatar-generator.html'
 const zomatoWebsite = 'https://www.zomato.com/'
+const gesturePaperLink = 'https://scispace.com/pdf/uwb-gestures-a-public-dataset-of-dynamic-hand-gestures-oxchjzh84f.pdf'
+const actionPaperLink = 'https://www.sciencedirect.com/science/article/abs/pii/S0957417420307703'
+const csinetPaperLink = 'https://arxiv.org/pdf/1712.08919'
+const csinetLstmPaperLink = 'https://arxiv.org/pdf/1807.11673'
+const lensfreeProjectLink = 'https://drive.google.com/file/d/1in8Q_xY7uikWElkadZh22aPhAzlrKyVH/view?usp=sharing'
 
 let orderedExperiences: Experience[] = []
 let orderedEducations: Education[] = []
@@ -126,6 +138,11 @@ if (education.length > 0) {
 							alt='Adobe Firefly logo'
 							class='h-10 w-10 object-contain drop-shadow-sm'
 						/>
+						<Image
+							src={RephraseLogo}
+							alt='Rephrase.ai logo'
+							class='h-16 w-16 object-contain drop-shadow-sm scale-125'
+						/>
 					</div>
 				</div>
 			</div>
@@ -176,6 +193,11 @@ if (education.length > 0) {
 							src={AdobeFireflyLogo}
 							alt='Adobe Firefly logo'
 							class='h-10 w-10 object-contain drop-shadow-sm'
+						/>
+						<Image
+							src={RephraseLogo}
+							alt='Rephrase.ai logo'
+							class='h-16 w-16 object-contain drop-shadow-sm scale-125'
 						/>
 					</div>
 				</div>
@@ -328,6 +350,233 @@ if (education.length > 0) {
 						<Image
 							src={ZomatoLogo}
 							alt='Zomato logo'
+							class='h-10 w-10 object-contain drop-shadow-sm'
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class='mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-start'>
+			<div class='flex justify-center'>
+				<div class='h-[224px] rounded-lg'>
+					<Image
+						src={GestureRecognitionAsset}
+						alt='Hand Gesture Recognition preview'
+						class='h-full w-auto max-w-full rounded-lg object-contain'
+					/>
+				</div>
+			</div>
+
+			<div class='space-y-4'>
+				<h3 class='text-xl font-bold'>Hand Gesture Recognition</h3>
+				<p class='text-base-content/90 leading-relaxed'>
+					Developed a deep learning based hand gesture recognition system using radar sensor data for touchless human-computer interaction. Trained and optimized CNN models on a inhouse radar gesture dataset. The system demonstrated strong generalization on real-world test data, highlighting the effectiveness of radar-based gesture recognition without reliance on cameras.
+				</p>
+				<div class='flex flex-wrap items-center gap-4'>
+					<a
+						href={gesturePaperLink}
+						target='_blank'
+						rel='noopener noreferrer'
+						class='group inline-flex items-center gap-2 text-xs text-zinc-500 transition-colors duration-300 hover:text-zinc-900'
+					>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='12'
+							height='12'
+							viewBox='0 0 24 24'
+							fill='none'
+							stroke='currentColor'
+							stroke-width='2'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							class='transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
+						>
+							<path d='M7 7h10v10'></path>
+							<path d='M7 17 17 7'></path>
+						</svg>
+						<span class='tracking-wider uppercase'>Website</span>
+					</a>
+					<div class='flex items-center gap-2'>
+						<Image
+							src={SamsungLogo}
+							alt='Samsung logo'
+							class='h-10 w-10 object-contain drop-shadow-sm'
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class='mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-start'>
+			<div class='flex justify-center'>
+				<div class='h-[224px] rounded-lg'>
+					<Image
+						src={HumanActionClassificationAsset}
+						alt='Human action classification preview'
+						class='h-full w-auto max-w-full rounded-lg object-contain'
+					/>
+				</div>
+			</div>
+
+			<div class='space-y-4'>
+				<h3 class='text-xl font-bold'>Human action classification</h3>
+				<p class='text-base-content/90 leading-relaxed'>
+					Developed a deep learning-based human action classification system using Ultra-Wideband (UWB) radar data as a privacy-preserving alternative to camera-based monitoring in smart environments. Experimented with CNN and CNN-LSTM architectures, applied custom data augmentations such as Magnitude and Time Warp, and optimized models through hyperparameter tuning to achieve strong performance across multiple action classes on unseen data.
+				</p>
+				<div class='flex flex-wrap items-center gap-4'>
+					<a
+						href={actionPaperLink}
+						target='_blank'
+						rel='noopener noreferrer'
+						class='group inline-flex items-center gap-2 text-xs text-zinc-500 transition-colors duration-300 hover:text-zinc-900'
+					>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='12'
+							height='12'
+							viewBox='0 0 24 24'
+							fill='none'
+							stroke='currentColor'
+							stroke-width='2'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							class='transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
+						>
+							<path d='M7 7h10v10'></path>
+							<path d='M7 17 17 7'></path>
+						</svg>
+						<span class='tracking-wider uppercase'>Website</span>
+					</a>
+					<div class='flex items-center gap-2'>
+						<Image
+							src={SamsungLogo}
+							alt='Samsung logo'
+							class='h-10 w-10 object-contain drop-shadow-sm'
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class='mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-start'>
+			<div class='flex justify-center'>
+				<div class='h-[224px] rounded-lg'>
+					<Image
+						src={CsiNetAsset}
+						alt='Deep Learning based CSI Compression preview'
+						class='h-full w-auto max-w-full rounded-lg object-contain'
+					/>
+				</div>
+			</div>
+
+			<div class='space-y-4'>
+				<h3 class='text-xl font-bold'>Deep Learning based CSI Compression</h3>
+				<p class='text-base-content/90 leading-relaxed'>
+					Developed a deep learning-based channel state information (CSI) compression and recovery system for massive MIMO networks. Implemented an autoencoder architecture with a CNN-based encoder and residual decoder to efficiently compress CSI for wireless feedback. Extended the baseline CsiNet model with a CsiNet-LSTM variant to better capture temporal correlations, improving NMSE from -17.3 dB to -23.3 dB over CsiNet.
+				</p>
+				<div class='flex flex-wrap items-center gap-4'>
+					<a
+						href={csinetPaperLink}
+						target='_blank'
+						rel='noopener noreferrer'
+						class='group inline-flex items-center gap-2 text-xs text-zinc-500 transition-colors duration-300 hover:text-zinc-900'
+					>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='12'
+							height='12'
+							viewBox='0 0 24 24'
+							fill='none'
+							stroke='currentColor'
+							stroke-width='2'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							class='transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
+						>
+							<path d='M7 7h10v10'></path>
+							<path d='M7 17 17 7'></path>
+						</svg>
+						<span class='tracking-wider uppercase'>Paper 1</span>
+					</a>
+					<a
+						href={csinetLstmPaperLink}
+						target='_blank'
+						rel='noopener noreferrer'
+						class='group inline-flex items-center gap-2 text-xs text-zinc-500 transition-colors duration-300 hover:text-zinc-900'
+					>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='12'
+							height='12'
+							viewBox='0 0 24 24'
+							fill='none'
+							stroke='currentColor'
+							stroke-width='2'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							class='transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
+						>
+							<path d='M7 7h10v10'></path>
+							<path d='M7 17 17 7'></path>
+						</svg>
+						<span class='tracking-wider uppercase'>Paper 2</span>
+					</a>
+					<div class='flex items-center gap-2'>
+						<Image
+							src={SamsungLogo}
+							alt='Samsung logo'
+							class='h-10 w-10 object-contain drop-shadow-sm'
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class='mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-start'>
+			<div class='flex justify-center'>
+				<div class='h-[224px] rounded-lg'>
+					<Image
+						src={LensfreeAsset}
+						alt='Image Reconstruction Using Lensfree Microscopy preview'
+						class='h-full w-auto max-w-full rounded-lg object-contain'
+					/>
+				</div>
+			</div>
+
+			<div class='space-y-4'>
+				<h3 class='text-xl font-bold'>Image Reconstruction Using Lensfree Microscopy</h3>
+				<p class='text-base-content/90 leading-relaxed'>
+					Designed and developed a working prototype of a lensless microscope for computational imaging. Built a laser controller circuit to switch between multiple lasers and integrated it with a Raspberry Pi for system control. Applied digital holographic reconstruction techniques to convert captured diffraction patterns into high-resolution images, demonstrating a compact and cost-effective alternative to traditional lens-based microscopy.
+				</p>
+				<div class='flex flex-wrap items-center gap-4'>
+					<a
+						href={lensfreeProjectLink}
+						target='_blank'
+						rel='noopener noreferrer'
+						class='group inline-flex items-center gap-2 text-xs text-zinc-500 transition-colors duration-300 hover:text-zinc-900'
+					>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='12'
+							height='12'
+							viewBox='0 0 24 24'
+							fill='none'
+							stroke='currentColor'
+							stroke-width='2'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							class='transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
+						>
+							<path d='M7 7h10v10'></path>
+							<path d='M7 17 17 7'></path>
+						</svg>
+						<span class='tracking-wider uppercase'>Website</span>
+					</a>
+					<div class='flex items-center gap-2'>
+						<Image
+							src={IitkgpLogo}
+							alt='IIT Kharagpur logo'
 							class='h-10 w-10 object-contain drop-shadow-sm'
 						/>
 					</div>
